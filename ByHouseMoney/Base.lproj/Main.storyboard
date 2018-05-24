@@ -36,15 +36,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LHMainTableViewCell" rowHeight="60" id="kem-hU-VFB" customClass="LHMainTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LHMainTableViewCell" rowHeight="55" id="kem-hU-VFB" customClass="LHMainTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kem-hU-VFB" id="rn3-93-Jse">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PR2-Me-7gH">
-                                            <rect key="frame" x="26" y="18" width="225" height="24"/>
+                                            <rect key="frame" x="26" y="15.5" width="225" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="3YF-8G-xua"/>
                                             </constraints>
@@ -53,7 +53,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-C3-abZ">
-                                            <rect key="frame" x="271" y="18" width="89" height="24"/>
+                                            <rect key="frame" x="271" y="15.5" width="89" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="89" id="5CA-fX-9uF"/>
                                                 <constraint firstAttribute="height" constant="24" id="mCi-g3-R6F"/>
@@ -83,6 +83,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="总览" id="GBU-jV-nAe">
+                        <barButtonItem key="leftBarButtonItem" title="截屏" id="kIA-w9-zei">
+                            <connections>
+                                <action selector="saveScreen:" destination="miI-fJ-w5v" id="6Kr-mw-Bcx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="omi-h1-L3h">
                             <connections>
                                 <segue destination="oac-Ac-yR0" kind="show" id="42m-74-bHd"/>
@@ -124,7 +129,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zd-cH-lh8">
                                         <rect key="frame" x="137" y="172" width="172" height="30"/>
@@ -133,20 +138,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-00-Bhf">
+                                        <rect key="frame" x="209" y="217" width="100" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="确定"/>
+                                        <connections>
+                                            <action selector="didTapOnOKButton:" destination="oac-Ac-yR0" eventType="touchUpInside" id="bzb-t0-0NK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="301" id="AlY-EW-WAp"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-00-Bhf">
-                                <rect key="frame" x="137" y="171" width="100" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="确定"/>
-                                <connections>
-                                    <action selector="didTapOnOKButton:" destination="oac-Ac-yR0" eventType="touchUpInside" id="bzb-t0-0NK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
