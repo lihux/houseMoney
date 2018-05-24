@@ -12,6 +12,8 @@
 #import "LHMainTableViewCell.h"
 #import "LHDetailViewController.h"
 
+#import <LocalAuthentication/LocalAuthentication.h>
+
 @interface LHMainTableViewController () <LHDetailViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *accounts;
@@ -23,8 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.accounts = [LHAccount loadAccounts];
-    [self reloadData];
+    [self startTouchID];
 }
 
 - (void)reloadData {
@@ -68,10 +69,10 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         NSMutableArray *temp = [NSMutableArray arrayWithArray:self.accounts];
         [temp removeObjectAtIndex:indexPath.row];
         self.accounts = [NSArray arrayWithArray:temp];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [LHAccount saveAccounts:self.accounts];
     }
 }
@@ -147,6 +148,32 @@
     if ([segue.destinationViewController isKindOfClass:[LHDetailViewController class]]) {
         [(LHDetailViewController *)segue.destinationViewController setDelegate:self];
     }
+}
+
+#pragma mark - TouchID issues
+- (void)startTouchID {
+    LAContext *context = [LAContext new];
+    //这个属性是设置指纹输入失败之后的弹出框的选项
+    context.localizedFallbackTitle = @"没有忘记密码";
+    NSError *error = nil;
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"请按home键指纹解锁" reply:^(BOOL success, NSError * _Nullable error) {
+            if (success) {
+                [self loadData];
+            } else {
+                exit(0);
+            }
+        }];
+    } else {
+        [self loadData];
+    }
+}
+
+- (void)loadData {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.accounts = [LHAccount loadAccounts];
+        [self reloadData];
+    });
 }
 
 @end
