@@ -34,6 +34,9 @@
     }
     self.totalMoney = totalMoney;
     self.title = [NSString stringWithFormat:@"总金额：%ld", (long)totalMoney];
+    self.accounts = [self.accounts sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [(LHAccount *)obj1 money] < [(LHAccount *)obj2 money];
+    }];
     [self.tableView reloadData];
 }
 
@@ -78,6 +81,8 @@
         LHAccount *account = [self.accounts objectAtIndex:indexPath.row];
         LHDetailViewController *detailViewController = [LHDetailViewController detailVCWithAccount:account delegate:self];
         [self.navigationController pushViewController:detailViewController animated:YES];
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
