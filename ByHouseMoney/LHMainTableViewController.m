@@ -15,6 +15,7 @@
 @interface LHMainTableViewController () <LHDetailViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *accounts;
+@property (nonatomic, assign) NSInteger totalMoney;
 
 @end
 
@@ -27,12 +28,13 @@
 }
 
 - (void)reloadData {
-    [self.tableView reloadData];
     NSInteger totalMoney = 0;
     for (LHAccount *account in self.accounts) {
         totalMoney += account.money;
     }
+    self.totalMoney = totalMoney;
     self.title = [NSString stringWithFormat:@"总金额：%ld", (long)totalMoney];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -42,17 +44,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.accounts.count;
+    NSInteger count = self.accounts.count;
+    return count > 0 ? count + 1 : count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifiler = NSStringFromClass([LHMainTableViewCell class]);
     LHMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiler forIndexPath:indexPath];
-    [cell configCellWithAccount:self.accounts[indexPath.row]];
+    LHAccount *account = indexPath.row == self.accounts.count ? [[LHAccount alloc] initWithName:@"总金额:" money:@(self.totalMoney)] : self.accounts[indexPath.row];
+    [cell configCellWithAccount:account];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ( indexPath.row == self.accounts.count && self.accounts.count > 0) {
+        return NO;
+    }
     return YES;
 }
 
@@ -67,9 +74,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    LHAccount *account = [self.accounts objectAtIndex:indexPath.row];
-    LHDetailViewController *detailViewController = [LHDetailViewController detailVCWithAccount:account delegate:self];
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    if (indexPath.row != self.accounts.count) {
+        LHAccount *account = [self.accounts objectAtIndex:indexPath.row];
+        LHDetailViewController *detailViewController = [LHDetailViewController detailVCWithAccount:account delegate:self];
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 #pragma mark - actions
