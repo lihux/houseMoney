@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class LHAccount;
+@class LHDetailViewController;
+
+@protocol LHDetailViewControllerDelegate<NSObject>
+
+- (void)detailViewController:(LHDetailViewController *)viewController finishBuildAccount:(LHAccount *)account;
+
+@end
+
 @interface LHDetailViewController : UIViewController
+
+@property (nonatomic, weak) id<LHDetailViewControllerDelegate> delegate;
+
++ (instancetype)detailVCWithAccount:(LHAccount *)account delegate:(id<LHDetailViewControllerDelegate>)delegate;
 
 @end

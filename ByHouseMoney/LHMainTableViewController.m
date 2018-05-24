@@ -8,7 +8,13 @@
 
 #import "LHMainTableViewController.h"
 
-@interface LHMainTableViewController ()
+#import "LHAccount.h"
+#import "LHMainTableViewCell.h"
+#import "LHDetailViewController.h"
+
+@interface LHMainTableViewController () <LHDetailViewControllerDelegate>
+
+@property (nonatomic, strong) NSArray *accounts;
 
 @end
 
@@ -16,70 +22,86 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.accounts = [LHAccount loadAccounts];
+    [self reloadData];
+}
+
+- (void)reloadData {
+    [self.tableView reloadData];
+    NSInteger totalMoney = 0;
+    for (LHAccount *account in self.accounts) {
+        totalMoney += account.money;
+    }
+    self.title = [NSString stringWithFormat:@"总金额：%ld", (long)totalMoney];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.accounts.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    NSString *identifiler = NSStringFromClass([LHMainTableViewCell class]);
+    LHMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiler forIndexPath:indexPath];
+    [cell configCellWithAccount:self.accounts[indexPath.row]];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        NSMutableArray *temp = [NSMutableArray arrayWithArray:self.accounts];
+        [temp removeObjectAtIndex:indexPath.row];
+        self.accounts = [NSArray arrayWithArray:temp];
+        [LHAccount saveAccounts:self.accounts];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LHAccount *account = [self.accounts objectAtIndex:indexPath.row];
+    LHDetailViewController *detailViewController = [LHDetailViewController detailVCWithAccount:account delegate:self];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+#pragma mark - LHDetailViewControllerDelegate
+- (void)detailViewController:(LHDetailViewController *)viewController finishBuildAccount:(LHAccount *)account {
+    if (!account) {
+        return;
+    }
+    BOOL hasDone = NO;
+    for (LHAccount *temp in self.accounts) {
+        if ([temp.name isEqualToString:account.name]) {
+            temp.money = account.money;
+            [self reloadData];
+            hasDone = YES;
+            break;
+        }
+    }
+    if (!hasDone) {
+        NSMutableArray *array = [NSMutableArray arrayWithObject:account];
+        if (self.accounts.count > 0) {
+            [array addObjectsFromArray:self.accounts];
+        }
+        self.accounts = [NSArray arrayWithArray:array];
+        [self reloadData];
+    }
+    [LHAccount saveAccounts:self.accounts];
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - segue issues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[LHDetailViewController class]]) {
+        [(LHDetailViewController *)segue.destinationViewController setDelegate:self];
+    }
 }
-*/
 
 @end

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class LHAccount;
+
 @interface LHMainTableViewCell : UITableViewCell
+
+- (void)configCellWithAccount:(LHAccount *)account;
 
 @end

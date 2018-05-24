@@ -13,8 +13,6 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger money;
 
-+ (NSArray *)loadAccounts;
-
 - (instancetype)initWithName:(NSString *)name money:(NSNumber *)money;
 + (void)saveAccounts:(NSArray *)accounts;
 + (NSArray *)loadAccounts;

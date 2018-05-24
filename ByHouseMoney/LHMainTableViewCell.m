@@ -8,17 +8,21 @@
 
 #import "LHMainTableViewCell.h"
 
+#import "LHAccount.h"
+
+@interface LHMainTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+
+@end
 @implementation LHMainTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)configCellWithAccount:(LHAccount *)account {
+    if (account) {
+        self.nameLabel.text = account.name;
+        self.moneyLabel.text = [NSString stringWithFormat:@"%ld", (long)account.money];
+    }
 }
 
 @end
