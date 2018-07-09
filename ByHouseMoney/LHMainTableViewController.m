@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSArray *accounts;
 @property (nonatomic, assign) NSInteger totalMoney;
+@property (nonatomic, assign) NSInteger showType;
 
 @end
 
@@ -39,6 +40,12 @@
         return [(LHAccount *)obj1 money] < [(LHAccount *)obj2 money];
     }];
     [self.tableView reloadData];
+}
+
+#pragma mark - actions
+
+- (IBAction)didTapOnSwitchButton:(id)sender {
+    
 }
 
 #pragma mark - Table view data source
