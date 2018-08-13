@@ -88,7 +88,7 @@
         totalCurrency += account.money;
     }
 
-    result = [result stringByAppendingString:[NSString stringWithFormat:@" 已筹:%ld万(含信用卡透支7万)\t需借贷：%ld万元", totalCurrency / 10000, (totalNeed - totalCurrency) / 10000]];
+    result = [result stringByAppendingString:[NSString stringWithFormat:@" 已筹:%ld万\t需借贷：%ld万元", totalCurrency / 10000, (totalNeed - totalCurrency) / 10000]];
 
     self.resultLabel.text = result;
 }
