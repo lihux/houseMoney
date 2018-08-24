@@ -11,8 +11,16 @@
 
 @implementation LHAccount
 
-+ (NSArray *)loadAccounts {
-    NSString *infos = [[NSUserDefaults standardUserDefaults] stringForKey:NSStringFromClass([self class])];
+- (instancetype)initWithName:(NSString *)name money:(NSNumber *)money {
+    if (self = [super init]) {
+        self.name = name;
+        self.money = [money integerValue];
+    }
+    return self;
+}
+
++ (NSArray *)loadAccountsFor:(NSString *)key {
+    NSString *infos = [[NSUserDefaults standardUserDefaults] stringForKey:key];
     if (infos) {
         NSData *jsonData = [infos dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error;
@@ -30,15 +38,7 @@
     return nil;
 }
 
-- (instancetype)initWithName:(NSString *)name money:(NSNumber *)money {
-    if (self = [super init]) {
-        self.name = name;
-        self.money = [money integerValue];
-    }
-    return self;
-}
-
-+ (void)saveAccounts:(NSArray *)accounts {
++ (void)saveAssetAccounts:(NSArray *)accounts forKey:(NSString *)key {
     if (accounts.count > 0) {
         NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
         for (LHAccount *account in accounts) {
@@ -48,11 +48,37 @@
         NSData *data = [NSJSONSerialization dataWithJSONObject:tempDic options:NSJSONWritingPrettyPrinted error:&error];
         if (data) {
             NSString *info = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            [[NSUserDefaults standardUserDefaults] setObject:info forKey:NSStringFromClass([self class])];
+            [[NSUserDefaults standardUserDefaults] setObject:info forKey:key];
         } else {
             NSLog(@"保存数据失败");
         }
     }
+}
+
+#pragma mark - 总资产
++ (NSArray *)loadAssetAccounts {
+    return [self loadAccountsFor:[self assetKey]];
+}
+
++ (void)saveAssetAccounts:(NSArray *)accounts {
+    [self saveAssetAccounts:accounts forKey:[self assetKey]];
+}
+
++(NSString *)assetKey {
+    return NSStringFromClass([self class]);
+}
+
+#pragma mark - 欠款
++ (NSArray *)loadCreditAccounts {
+    return [self loadAccountsFor:[self creditKey]];
+}
+
++ (void)saveCreditAccounts:(NSArray *)accounts {
+    [self saveAssetAccounts:accounts forKey:[self creditKey]];
+}
+
++(NSString *)creditKey {
+    return [NSString stringWithFormat:@"Credit_%@", NSStringFromClass([self class])];
 }
 
 @end

@@ -14,7 +14,13 @@
 @property (nonatomic, assign) NSInteger money;
 
 - (instancetype)initWithName:(NSString *)name money:(NSNumber *)money;
-+ (void)saveAccounts:(NSArray *)accounts;
-+ (NSArray *)loadAccounts;
+
+//资产信息读取与保存
++ (NSArray *)loadAssetAccounts;
++ (void)saveAssetAccounts:(NSArray *)accounts;
+
+//借债信息读取与保存
++ (NSArray *)loadCreditAccounts;
++ (void)saveCreditAccounts:(NSArray *)accounts;
 
 @end

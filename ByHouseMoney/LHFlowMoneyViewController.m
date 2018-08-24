@@ -82,7 +82,7 @@
     result = [result stringByAppendingString:[NSString stringWithFormat:@"\n净首付:%ld万，契税:%.2f万,中介费%.2f万", pureFirstPay / 10000, taxC / 10000, zjf / 10000]];
     result = [result stringByAppendingString:[NSString stringWithFormat:@"\n总首付:%.2f万", (pureFirstPay + taxC + zjf) / 10000]];
     
-    NSArray *accounts = [LHAccount loadAccounts];
+    NSArray *accounts = [LHAccount loadAssetAccounts];
     NSInteger totalCurrency = futureIncome;
     for (LHAccount *account in accounts) {
         totalCurrency += account.money;

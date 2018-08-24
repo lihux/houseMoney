@@ -494,6 +494,7 @@
                     <connections>
                         <segue destination="Fyj-Jv-4In" kind="relationship" relationship="viewControllers" id="8xF-5b-dgV"/>
                         <segue destination="mvH-VJ-X6T" kind="relationship" relationship="viewControllers" id="mFI-fb-oxP"/>
+                        <segue destination="2iY-w5-j07" kind="relationship" relationship="viewControllers" id="ZlQ-2E-bGq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="87V-hg-86D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -572,6 +573,23 @@
             </objects>
             <point key="canvasLocation" x="-154" y="737"/>
         </scene>
+        <!--欠债-->
+        <scene sceneID="PkG-7h-WwU">
+            <objects>
+                <navigationController id="2iY-w5-j07" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="欠债" image="tab3" id="isX-yU-67J"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="71u-0Z-Qa1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dK5-9f-hi8" kind="relationship" relationship="rootViewController" id="5wX-9g-eDm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuC-dX-Dl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-709" y="-23"/>
+        </scene>
         <!--新建账号-->
         <scene sceneID="ZD3-0g-Mg1">
             <objects>
@@ -644,9 +662,85 @@
             </objects>
             <point key="canvasLocation" x="481" y="736"/>
         </scene>
+        <!--总表-->
+        <scene sceneID="mqJ-cW-hzH">
+            <objects>
+                <tableViewController storyboardIdentifier="LHCreditTableViewController" title="总表" id="dK5-9f-hi8" customClass="LHCreditTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I0d-Zz-tKB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LHMainTableViewCell" rowHeight="40" id="WoJ-Pa-6SZ" customClass="LHMainTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WoJ-Pa-6SZ" id="OWb-fK-9H4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQr-QX-aI8">
+                                            <rect key="frame" x="26" y="8" width="225" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="cC0-5Y-enU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8z-yV-0C3">
+                                            <rect key="frame" x="271" y="8" width="89" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="PKU-Pd-8QT"/>
+                                                <constraint firstAttribute="width" constant="89" id="Zmn-mO-jeo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AQr-QX-aI8" firstAttribute="leading" secondItem="OWb-fK-9H4" secondAttribute="leadingMargin" constant="10" id="Is4-r3-TWg"/>
+                                        <constraint firstItem="F8z-yV-0C3" firstAttribute="centerY" secondItem="OWb-fK-9H4" secondAttribute="centerY" id="SsE-TM-uy3"/>
+                                        <constraint firstItem="F8z-yV-0C3" firstAttribute="leading" secondItem="AQr-QX-aI8" secondAttribute="trailing" constant="20" id="Vh0-Tu-Nyr"/>
+                                        <constraint firstAttribute="trailing" secondItem="F8z-yV-0C3" secondAttribute="trailing" constant="15" id="edD-OR-69C"/>
+                                        <constraint firstItem="AQr-QX-aI8" firstAttribute="centerY" secondItem="OWb-fK-9H4" secondAttribute="centerY" id="so4-Mf-4wn"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="moneyLabel" destination="F8z-yV-0C3" id="4vs-Gy-i1Y"/>
+                                    <outlet property="nameLabel" destination="AQr-QX-aI8" id="sKa-UD-QnD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dK5-9f-hi8" id="mMj-6e-s5R"/>
+                            <outlet property="delegate" destination="dK5-9f-hi8" id="ooK-xI-JSw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="总览" id="hfK-9F-GqS">
+                        <barButtonItem key="leftBarButtonItem" title="截屏" id="BJr-OI-LxD">
+                            <connections>
+                                <action selector="saveScreen:" destination="dK5-9f-hi8" id="nuk-aW-qLg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SOy-8A-hvI">
+                            <connections>
+                                <segue destination="oac-Ac-yR0" kind="show" id="mkn-y8-rxH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5K-QI-iH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="-24"/>
+        </scene>
     </scenes>
     <resources>
         <image name="tab1" width="25" height="25"/>
         <image name="tab2" width="25" height="25"/>
+        <image name="tab3" width="25" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mkn-y8-rxH"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,7 @@
 		529388E920B582D30094D6A1 /* LHMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529388E820B582D30094D6A1 /* LHMainTableViewCell.m */; };
 		529388EC20B584C80094D6A1 /* LHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529388EB20B584C80094D6A1 /* LHDetailViewController.m */; };
 		529388EF20B585780094D6A1 /* LHAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 529388EE20B585780094D6A1 /* LHAccount.m */; };
+		52C9948C212F92D100132753 /* LHCreditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C9948B212F92D100132753 /* LHCreditTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		529388EB20B584C80094D6A1 /* LHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHDetailViewController.m; sourceTree = "<group>"; };
 		529388ED20B585780094D6A1 /* LHAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHAccount.h; sourceTree = "<group>"; };
 		529388EE20B585780094D6A1 /* LHAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHAccount.m; sourceTree = "<group>"; };
+		52C9948A212F92D100132753 /* LHCreditTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHCreditTableViewController.h; sourceTree = "<group>"; };
+		52C9948B212F92D100132753 /* LHCreditTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHCreditTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 				529388E820B582D30094D6A1 /* LHMainTableViewCell.m */,
 				529388E420B582750094D6A1 /* LHMainTableViewController.h */,
 				529388E520B582750094D6A1 /* LHMainTableViewController.m */,
+				52C9948A212F92D100132753 /* LHCreditTableViewController.h */,
+				52C9948B212F92D100132753 /* LHCreditTableViewController.m */,
 				5239111020F3572100201F4C /* LHFlowMoneyViewController.h */,
 				5239111120F3572100201F4C /* LHFlowMoneyViewController.m */,
 				529388ED20B585780094D6A1 /* LHAccount.h */,
@@ -167,6 +172,7 @@
 				529388E620B582750094D6A1 /* LHMainTableViewController.m in Sources */,
 				5239111220F3572100201F4C /* LHFlowMoneyViewController.m in Sources */,
 				529388EC20B584C80094D6A1 /* LHDetailViewController.m in Sources */,
+				52C9948C212F92D100132753 /* LHCreditTableViewController.m in Sources */,
 				529388D020B581C40094D6A1 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
