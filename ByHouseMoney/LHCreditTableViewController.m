@@ -80,7 +80,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifiler = NSStringFromClass([LHMainTableViewCell class]);
     LHMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiler forIndexPath:indexPath];
-    LHAccount *account = indexPath.row == self.accounts.count ? [[LHAccount alloc] initWithName:@"总金额:" money:@(self.totalMoney)] : self.accounts[indexPath.row];
+    LHAccount *account = indexPath.row == self.accounts.count ? [[LHAccount alloc] initWithName:@"总借入金额:" money:@(self.totalMoney)] : self.accounts[indexPath.row];
     [cell configCellWithAccount:account];
     return cell;
 }
@@ -134,7 +134,7 @@
         self.accounts = [NSArray arrayWithArray:array];
         [self reloadData];
     }
-    [LHAccount saveAssetAccounts:self.accounts];
+    [LHAccount saveCreditAccounts:self.accounts];
 }
 
 #pragma mark - segue issues

@@ -42,7 +42,7 @@
 - (IBAction)didTapOnOKButton:(id)sender {
     NSString *name = self.nameTextField.text;
     NSInteger money = [self.moneyTextField.text integerValue];
-    if (name.length > 0 && money > 0) {
+    if (name.length > 0) {
         LHAccount *account = [[LHAccount alloc] initWithName:name money:@(money)];
         if ([self.delegate respondsToSelector:@selector(detailViewController:finishBuildAccount:)]) {
             [self.delegate detailViewController:self finishBuildAccount:account];

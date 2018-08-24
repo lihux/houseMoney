@@ -39,15 +39,11 @@
     [self.view addGestureRecognizer:gesture];
 }
 
-- (NSInteger)integerValueFromTextField:(UITextField *)textField {
-    return [textField.text integerValue];
-}
-
 #pragma mark - actions
 
 - (IBAction)didTapOnCalculateButton:(id)sender {
     [self didTapOnBackgroundView:nil];
-    NSInteger totalPrice = [self.totalMoneyTextField.text integerValue] * 10000;
+    NSInteger totalPrice = [self.totalMoneyTextField.text floatValue] * 10000;
     CGFloat houseDiscount = [self.houseDiscountTextField.text integerValue] / 100.0;
     NSInteger houseNetPrice = totalPrice * houseDiscount;
     NSInteger totalBorrow = (NSInteger)(houseNetPrice * 0.65), gjjBorrow = 120 * 10000;
@@ -59,7 +55,7 @@
     NSInteger futureIncome = [self.futureIncomeTextField.text integerValue];
     NSInteger months = [self.yearTextField.text integerValue] * 12;
     NSInteger totalInput = [self.myInputTextField.text integerValue] + [self.myWFInputTextField.text integerValue] + [self.myGJJTextField.text integerValue] + [self.myWFGJJTextField.text integerValue];
-    NSString *result = [NSString stringWithFormat:@"总价%ld万元\t评估%.0f成新\t网签价:%ld万 贷款总额:%ld万\n 纯首付%ld万, 商贷%ld万, 公积金%ld万", totalPrice / 10000, houseDiscount * 100, houseNetPrice / 10000, totalBorrow / 10000, pureFirstPay / 10000, comBorrow / 10000, gjjBorrow / 10000];
+    NSString *result = [NSString stringWithFormat:@"总价%.1f万元\t评估%.0f成新\t网签价:%ld万 贷款总额:%ld万\n 纯首付%.1f万, 商贷%ld万, 公积金%ld万", totalPrice / 10000.0, houseDiscount * 100, houseNetPrice / 10000, totalBorrow / 10000, pureFirstPay / 10000.0, comBorrow / 10000, gjjBorrow / 10000];
 
 
     //等额本息计算公式：每月月供额 = 贷款本金×月利率×(1+月利率)^还款月数〕/〔(1+月利率)^还款月数-1〕
@@ -74,12 +70,13 @@
     NSInteger monthLeft = totalInput - totalMonthPay;
     CGFloat taxC = houseNetPrice * 0.01, zjf = totalPrice * zjRate;
     NSInteger totalNeed = pureFirstPay + taxC + zjf;
+    NSInteger creditTax = 43000;
     
     result = [result stringByAppendingString:[NSString stringWithFormat:@"\n月还款公积金:%ld元, ", (NSInteger)gjjMonthPay]];
     result = [result stringByAppendingString:[NSString stringWithFormat:@"商贷:%ld元, ", (NSInteger)comMonthPay]];
     result = [result stringByAppendingString:[NSString stringWithFormat:@"总计:%ld元, ", totalMonthPay]];
     result = [result stringByAppendingString:[NSString stringWithFormat:@"\n家庭月入:%ld元, 还房贷后净剩:%ld元", totalInput, monthLeft]];
-    result = [result stringByAppendingString:[NSString stringWithFormat:@"\n净首付:%ld万，契税:%.2f万,中介费%.2f万", pureFirstPay / 10000, taxC / 10000, zjf / 10000]];
+    result = [result stringByAppendingString:[NSString stringWithFormat:@"\n净首付:%.1f万，契税:%.2f万,中介费%.4f万", pureFirstPay / 10000.0, taxC / 10000, zjf / 10000]];
     result = [result stringByAppendingString:[NSString stringWithFormat:@"\n总首付:%.2f万", (pureFirstPay + taxC + zjf) / 10000]];
     
     NSArray *accounts = [LHAccount loadAssetAccounts];
@@ -88,7 +85,7 @@
         totalCurrency += account.money;
     }
 
-    result = [result stringByAppendingString:[NSString stringWithFormat:@" 已筹:%ld万\t需借贷：%ld万元", totalCurrency / 10000, (totalNeed - totalCurrency) / 10000]];
+    result = [result stringByAppendingString:[NSString stringWithFormat:@"已筹:%ld万,契税刷信用卡\t因此需借贷：%.2f万元", totalCurrency / 10000, (totalNeed - totalCurrency - creditTax) / 10000.0]];
 
     self.resultLabel.text = result;
 }
