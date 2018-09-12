@@ -98,7 +98,7 @@
         [temp removeObjectAtIndex:indexPath.row];
         self.accounts = [NSArray arrayWithArray:temp];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [LHAccount saveAssetAccounts:self.accounts];
+        [LHAccount saveCreditAccounts:self.accounts];
     }
 }
 
