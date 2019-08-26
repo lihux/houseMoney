@@ -33,7 +33,7 @@
         totalMoney += account.money;
     }
     self.totalMoney = totalMoney;
-    self.title = [NSString stringWithFormat:@"总借入金额：%ld", (long)totalMoney];
+    self.title = @"欠债";
     self.accounts = [self.accounts sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [(LHAccount *)obj1 money] < [(LHAccount *)obj2 money];
     }];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5239111220F3572100201F4C /* LHFlowMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239111120F3572100201F4C /* LHFlowMoneyViewController.m */; };
+		52807F5F2313ED8F00E681B6 /* LHTaxCalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52807F5E2313ED8F00E681B6 /* LHTaxCalViewController.m */; };
 		529388D020B581C40094D6A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 529388CF20B581C40094D6A1 /* AppDelegate.m */; };
 		529388D620B581C40094D6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529388D420B581C40094D6A1 /* Main.storyboard */; };
 		529388D820B581C50094D6A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 529388D720B581C50094D6A1 /* Assets.xcassets */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		5239111020F3572100201F4C /* LHFlowMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHFlowMoneyViewController.h; sourceTree = "<group>"; };
 		5239111120F3572100201F4C /* LHFlowMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHFlowMoneyViewController.m; sourceTree = "<group>"; };
+		52807F5D2313ED8F00E681B6 /* LHTaxCalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHTaxCalViewController.h; sourceTree = "<group>"; };
+		52807F5E2313ED8F00E681B6 /* LHTaxCalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHTaxCalViewController.m; sourceTree = "<group>"; };
 		529388CB20B581C40094D6A1 /* ByHouseMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByHouseMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		529388CE20B581C40094D6A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		529388CF20B581C40094D6A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 				52C9948B212F92D100132753 /* LHCreditTableViewController.m */,
 				5239111020F3572100201F4C /* LHFlowMoneyViewController.h */,
 				5239111120F3572100201F4C /* LHFlowMoneyViewController.m */,
+				52807F5D2313ED8F00E681B6 /* LHTaxCalViewController.h */,
+				52807F5E2313ED8F00E681B6 /* LHTaxCalViewController.m */,
 				529388ED20B585780094D6A1 /* LHAccount.h */,
 				529388EE20B585780094D6A1 /* LHAccount.m */,
 				529388EA20B584C80094D6A1 /* LHDetailViewController.h */,
@@ -168,6 +173,7 @@
 			files = (
 				529388E920B582D30094D6A1 /* LHMainTableViewCell.m in Sources */,
 				529388EF20B585780094D6A1 /* LHAccount.m in Sources */,
+				52807F5F2313ED8F00E681B6 /* LHTaxCalViewController.m in Sources */,
 				529388DE20B581C50094D6A1 /* main.m in Sources */,
 				529388E620B582750094D6A1 /* LHMainTableViewController.m in Sources */,
 				5239111220F3572100201F4C /* LHFlowMoneyViewController.m in Sources */,
