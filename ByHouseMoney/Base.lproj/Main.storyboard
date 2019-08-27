@@ -604,7 +604,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3D-yG-qOs" userLabel="总价">
                                         <rect key="frame" x="15" y="67" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总价(万元):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfT-eE-hAI">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月薪(元)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfT-eE-hAI">
                                                 <rect key="frame" x="0.0" y="7.5" width="225" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="4UW-jH-hCH"/>
@@ -613,7 +613,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="451.5" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24w-vp-sWV">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="57558" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24w-vp-sWV">
                                                 <rect key="frame" x="245" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="WLz-3i-hU7"/>
@@ -637,7 +637,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfX-uq-iOY" userLabel="房屋评估">
                                         <rect key="frame" x="15" y="102" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房屋评估(几成新):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1I-oO-YcA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公积金缴存上限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1I-oO-YcA">
                                                 <rect key="frame" x="0.0" y="7.5" width="225" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="gao-77-gwP"/>
@@ -646,7 +646,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="95" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-vI-k0q">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="27786" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-vI-k0q">
                                                 <rect key="frame" x="245" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="GLY-ig-62R"/>
@@ -670,7 +670,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHy-4i-q3b" userLabel="商贷利率上浮">
                                         <rect key="frame" x="15" y="137" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商贷利率5.39上浮(百分之多少):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5R-AD-AuS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="养小孩扣减额度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5R-AD-AuS">
                                                 <rect key="frame" x="0.0" y="7.5" width="225" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="QfA-4W-iaw"/>
@@ -679,7 +679,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-jz-qQi">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-jz-qQi">
                                                 <rect key="frame" x="245" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="eE9-5T-zon"/>
@@ -703,7 +703,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwv-P0-lKP" userLabel="贷款年限">
                                         <rect key="frame" x="15" y="172" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贷款年限(年):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ3-8Z-ns0">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房贷扣减额度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ3-8Z-ns0">
                                                 <rect key="frame" x="0.0" y="7.5" width="225" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="Yoz-V8-TGO"/>
@@ -712,7 +712,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-v0-mit">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-v0-mit">
                                                 <rect key="frame" x="245" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Vw6-1m-lPe"/>
@@ -736,7 +736,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzK-PN-esS" userLabel="L流水">
                                         <rect key="frame" x="15" y="207" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L流水(元):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjx-xX-pOk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="父母养老扣减额度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjx-xX-pOk">
                                                 <rect key="frame" x="0.0" y="7.5" width="225" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="gI7-va-hzt"/>
@@ -745,7 +745,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="38857" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hw7-Vl-85P">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hw7-Vl-85P">
                                                 <rect key="frame" x="245" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="LJR-T7-ZWI"/>
@@ -848,7 +848,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="didTapOnCalculateButton:" destination="7sK-J3-CmE" eventType="touchUpInside" id="Tua-ee-uGH"/>
+                                            <action selector="didTapOnCalculateButton:" destination="7ds-Ci-BxB" eventType="touchUpInside" id="LLc-T0-mxR"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWh-4D-vA6">
@@ -1011,6 +1011,14 @@
                         <viewLayoutGuide key="safeArea" id="VdE-ds-GKE"/>
                     </view>
                     <navigationItem key="navigationItem" id="oQk-Em-e0E"/>
+                    <connections>
+                        <outlet property="GJJBaseTextField" destination="Rdt-vI-k0q" id="hw1-jv-5Yu"/>
+                        <outlet property="childTextField" destination="Iql-jz-qQi" id="HOI-S1-4uo"/>
+                        <outlet property="houseLoadTextField" destination="MJ3-v0-mit" id="DW4-Wf-EPk"/>
+                        <outlet property="parentTextField" destination="Hw7-Vl-85P" id="zSp-JN-z1a"/>
+                        <outlet property="resultLabel" destination="hWh-4D-vA6" id="Idw-6d-fan"/>
+                        <outlet property="salaryTextField" destination="24w-vp-sWV" id="Axq-LU-7ha"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JM-jb-PBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
