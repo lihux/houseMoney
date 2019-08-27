@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *houseLoadTextField;
 @property (weak, nonatomic) IBOutlet UITextField *parentTextField;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UITextField *extraTextField;
 
 @end
 
@@ -32,6 +33,7 @@
     CGFloat childReduce = [self.childTextField.text floatValue];//养娃减税
     CGFloat houseLoadReduce = [self.houseLoadTextField.text floatValue];//房贷减税
     CGFloat parentRecude = [self.parentTextField.text floatValue];//父母养老减税
+    CGFloat extraIncome = [self.extraTextField.text floatValue];//餐补等其他补助
     if (salary <= 0 || base <= 0) {
         return;//输入内容非法，取消计算
     }
@@ -61,9 +63,23 @@
         tax = totalTaxPart * 0.45 - 181920;//好吧，年薪百万的哥们，你赢了
     }
     
-    CGFloat puerIncome = total - (month5X1JReduce * 12) - tax;
+    CGFloat pureIncome = total - (month5X1JReduce * 12) - tax;
     
-    NSString *result = [NSString stringWithFormat:@"年总收入%.4f万元，平均每月：%ld元", puerIncome / 10000, (NSInteger)puerIncome / 12];
+    CGFloat gjj = realBase * 0.24;
+    CGFloat yb = realBase * 0.028;
+    CGFloat oldMoney = realBase * 0.08;
+    CGFloat part2 = gjj + yb;
+    CGFloat part2Income = part2 * 12;
+    CGFloat totalIncome = pureIncome + part2Income;
+    CGFloat realTotalIncome = totalIncome + oldMoney * 12;
+    
+    CGFloat realRealTotalIncom = realTotalIncome + (extraIncome * 12);
+    NSString *result = [NSString stringWithFormat:@"年工资总收入%.4f万元，平均每月：%ld元\n五险一金提取总收入%.4f万元，平均每月%ld元\n年总收入%.4f万元，平均每月:%ld元", pureIncome / 10000, (NSInteger)pureIncome / 12, part2Income / 10000, (NSInteger)part2, totalIncome / 10000, (NSInteger)totalIncome / 12];
+    result = [NSString stringWithFormat:@"%@\n\n算上养老保险个人账户的绝对总收入是：%.4f万元，平均每月 %ld元, 养老个人账户%ld元", result, realTotalIncome / 10000, (NSInteger)realTotalIncome / 12, (NSInteger)oldMoney];
+    
+    if (extraIncome > 0) {
+        result = [NSString stringWithFormat:@"%@\n\n算上养老和饭补等所有的绝对总收入是：%.4f万元，平均每月 %ld元, 饭补等每月%ld元", result, realRealTotalIncom / 10000, (NSInteger)realRealTotalIncom / 12, (NSInteger)extraIncome];
+    }
     self.resultLabel.text = result;
 }
 

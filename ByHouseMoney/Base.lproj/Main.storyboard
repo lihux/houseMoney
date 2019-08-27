@@ -769,7 +769,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZb-Ni-PJj" userLabel="P流水">
                                         <rect key="frame" x="15" y="242" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P流水(元):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85P-Uc-qAL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="餐补等其他补助" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85P-Uc-qAL">
                                                 <rect key="frame" x="0.0" y="7.5" width="225" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="hEo-fb-t5h"/>
@@ -778,7 +778,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="7050" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZU-gJ-dhV">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZU-gJ-dhV">
                                                 <rect key="frame" x="245" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="aP6-Y8-s4H"/>
@@ -1014,6 +1014,7 @@
                     <connections>
                         <outlet property="GJJBaseTextField" destination="Rdt-vI-k0q" id="hw1-jv-5Yu"/>
                         <outlet property="childTextField" destination="Iql-jz-qQi" id="HOI-S1-4uo"/>
+                        <outlet property="extraTextField" destination="oZU-gJ-dhV" id="Wj6-8B-hA1"/>
                         <outlet property="houseLoadTextField" destination="MJ3-v0-mit" id="DW4-Wf-EPk"/>
                         <outlet property="parentTextField" destination="Hw7-Vl-85P" id="zSp-JN-z1a"/>
                         <outlet property="resultLabel" destination="hWh-4D-vA6" id="Idw-6d-fan"/>
