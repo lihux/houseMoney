@@ -38,7 +38,7 @@
         return;//输入内容非法，取消计算
     }
     
-    CGFloat total = salary * 12;//年总收入
+    CGFloat total = salary * 12;//年总收入】
     CGFloat baseReduce = 5000;//基础扣除数，2019更新
     CGFloat realBase = salary > base ? base : salary;
     CGFloat dbtc = 3;//大病统筹每月3块钱
@@ -74,12 +74,15 @@
     CGFloat realTotalIncome = totalIncome + oldMoney * 12;
     
     CGFloat realRealTotalIncom = realTotalIncome + (extraIncome * 12);
-    NSString *result = [NSString stringWithFormat:@"年工资总收入%.4f万元，平均每月：%ld元\n五险一金提取总收入%.4f万元，平均每月%ld元\n年总收入%.4f万元，平均每月:%ld元", pureIncome / 10000, (NSInteger)pureIncome / 12, part2Income / 10000, (NSInteger)part2, totalIncome / 10000, (NSInteger)totalIncome / 12];
+    NSString *result = [NSString stringWithFormat:@"年工资总收入%.4f万元，平均每月：%ld元\n\n五险一金提取总收入%.4f万元，平均每月%ld元\n年总收入%.4f万元，平均每月:%ld元", pureIncome / 10000, (NSInteger)pureIncome / 12, part2Income / 10000, (NSInteger)part2, totalIncome / 10000, (NSInteger)totalIncome / 12];
     result = [NSString stringWithFormat:@"%@\n\n算上养老保险个人账户的绝对总收入是：%.4f万元，平均每月 %ld元, 养老个人账户%ld元", result, realTotalIncome / 10000, (NSInteger)realTotalIncome / 12, (NSInteger)oldMoney];
     
     if (extraIncome > 0) {
         result = [NSString stringWithFormat:@"%@\n\n算上养老和饭补等所有的绝对总收入是：%.4f万元，平均每月 %ld元, 饭补等每月%ld元", result, realRealTotalIncom / 10000, (NSInteger)realRealTotalIncom / 12, (NSInteger)extraIncome];
     }
+    
+    result = [NSString stringWithFormat:@"%@\n\n税前年薪是：%.4f万,共计纳税%.4f万元！", result, salary * 12 / 10000, tax / 10000];
+    
     self.resultLabel.text = result;
 }
 
